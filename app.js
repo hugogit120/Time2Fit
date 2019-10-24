@@ -3,6 +3,18 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const mongoose = require('mongoose');
+const session = require('express-session');
+
+
+mongoose
+  .connect('mongodb://localhost/projectT2F', { useNewUrlParser: true })
+  .then(x => {
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+  })
+  .catch(err => {
+    console.error('Error connecting to mongo', err)
+  });
 
 
 const indexRouter = require('./routes/index');
@@ -35,6 +47,16 @@ app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+
+  app.use(session({ //esto es un middleware
+    secret: 'basic-auth-secret',
+    cookie: { maxAge: 60000 },
+    store: new Mongostore({
+      mongooseConnection: mongoose.connection,
+      ttl: 24 * 60 * 60 // 1 day
+    })
+  }));
 
   // render the error page
   res.status(err.status || 500);
