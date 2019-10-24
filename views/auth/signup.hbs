@@ -1,13 +1,25 @@
-<form id="form" action="/signup" method="POST">
+<form id="form" action="/auth/signup" method="POST">
+
+    <input type="text" name="username" placeholder="username">
     <label for="username">Username</label>
     <br>
 
-    <input type="text" name="username" placeholder="Your username">
+    <input type="text" name="email" placeholder="Your email">
+
+    <label for="email">Email</label>
+    <br>
+
+    <input type="password" name="password" placeholder="********">
 
     <label for="password">Password</label>
     <br>
 
-    <input type="password" name="password" placeholder="********">
+     <input type="radio" name="gender" value="male" > male <br>
+     <input type="radio" name="gender" value="female" > female <br>
+     <input type="radio" name="gender" value="other" > other 
+
+    
+
 
     <button type="submit">Create account </button>
 </form>

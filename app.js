@@ -19,7 +19,7 @@ mongoose
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const authRouter = require('.routes/auth')
+const authRouter = require('./routes/auth')
 
 const app = express();
 
@@ -33,9 +33,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+ app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/auth', authRouter);
+app.use('/auth', authRouter); 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -49,14 +49,14 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
 
-  app.use(session({ //esto es un middleware
+/*   app.use(session({ //esto es un middleware
     secret: 'basic-auth-secret',
     cookie: { maxAge: 60000 },
     store: new Mongostore({
       mongooseConnection: mongoose.connection,
       ttl: 24 * 60 * 60 // 1 day
     })
-  }));
+  })); */
 
   // render the error page
   res.status(err.status || 500);

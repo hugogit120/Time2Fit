@@ -7,7 +7,12 @@ const userSchema = new Schema({
     password: { type: String, required: true },
     image : String,
     gender: { type: String, required: true },
-    age : String
+    age : Number,
+    heigh: Number,
+    weight: Number,
+    exercices: String,
+    routines: String
+    
 }, {
     timestamps: true
 });
@@ -16,7 +21,3 @@ const User = mongoose.model("User", userSchema);
 
 module.exports = User;
  
-
-
-
-//hola
