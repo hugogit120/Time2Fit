@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const session = require('express-session');
-
+const Mongostore = require('connect-mongo')(session);
 
 mongoose
   .connect('mongodb://localhost/projectT2F', { useNewUrlParser: true })
@@ -33,7 +33,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
- app.use('/', indexRouter);
+app.use(session({ //esto es un middleware
+  secret: 'basic-auth-secret',
+  cookie: { maxAge: 60000 },
+  store: new Mongostore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
+
+app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter); 
 
@@ -49,14 +58,6 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
 
-/*   app.use(session({ //esto es un middleware
-    secret: 'basic-auth-secret',
-    cookie: { maxAge: 60000 },
-    store: new Mongostore({
-      mongooseConnection: mongoose.connection,
-      ttl: 24 * 60 * 60 // 1 day
-    })
-  })); */
 
   // render the error page
   res.status(err.status || 500);

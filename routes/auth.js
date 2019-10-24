@@ -77,4 +77,53 @@ router.post("/signup", (req, res, next) => {
         });
 });
 
+////////////////LOGIN////////////////////
+//Route del login:
+router.get("/login", (req, res, next) => {
+    res.render("auth/login");
+});
+
+router.post("/login", (req, res, next) => {
+
+    const theUsername = req.body.username;
+    const thePassword = req.body.password;
+
+    if (theUsername === "" || thePassword === "") {
+        res.render("auth/login", {
+            errorMessage: "Please enter username and password to sign up."
+    });
+        return;
+    }
+    
+// buscamos en la BD si existe un username con los datos del user que vienen del form
+// si no lo encuentra, nos dice que el user no existe
+// sino, nos devuelve el user
+// usamos el método compareSync para hacer hash del form input y compararlo con el password guardado en la BD
+    User.findOne({ "username": theUsername })
+    .then(user => {
+        if (!user) {
+            res.render("auth/login", {
+                errorMessage: "The username doesn't exist."
+        });
+            return;
+        }
+
+        if (bcrypt.compareSync(thePassword, user.password)) {
+            // Save the login in the session!
+            //the request object has a property called session where we can add the values we want to store on it. In this case, we are setting it up with the user’s information.
+            // session is a cookie to keep the user data cuando esta logeado
+            req.session.currentUser = user;
+            res.redirect("/");
+            return;
+        } else {
+            res.render("auth/login", {
+                errorMessage: "Incorrect password"
+            });
+        }
+    })
+    .catch(error => {
+        next(error);
+    })
+});
+
 module.exports = router;
