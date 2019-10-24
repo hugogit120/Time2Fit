@@ -6,7 +6,8 @@ const userSchema = new Schema({
     email: { type: String, required: true },
     password: { type: String, required: true },
     image : String,
-    gender: { type: String, required: true }
+    gender: { type: String, required: true },
+    age : String
 }, {
     timestamps: true
 });
