@@ -113,7 +113,7 @@ router.post("/login", (req, res, next) => {
             //the request object has a property called session where we can add the values we want to store on it. In this case, we are setting it up with the user’s information.
             // session is a cookie to keep the user data cuando esta logeado
             req.session.currentUser = user;
-            res.redirect("/");
+            res.redirect("/private/home");
             return;
         } else {
             res.render("auth/login", {

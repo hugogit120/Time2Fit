@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const Mongostore = require('connect-mongo')(session);
 
+
 mongoose
   .connect('mongodb://localhost/projectT2F', { useNewUrlParser: true })
   .then(x => {
@@ -19,7 +20,9 @@ mongoose
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const authRouter = require('./routes/auth')
+const authRouter = require('./routes/auth');
+const privateRouter = require('./routes/private');
+
 
 const app = express();
 
@@ -45,6 +48,7 @@ app.use(session({ //esto es un middleware
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter); 
+app.use('/private', privateRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -8,8 +8,8 @@ image : String,
 category : String,
 });
 
-const Exercice = mongoose.model("Exercice", exerciseSchema);
+const Exercise = mongoose.model("Exercise", exerciseSchema);
 
-module.exports = Exercice;
+module.exports = Exercise;
 
 
