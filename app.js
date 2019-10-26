@@ -2,6 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser'); // lo instale hoy 26/10/2019 14:33
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const session = require('express-session');

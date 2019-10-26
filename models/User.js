@@ -8,7 +8,7 @@ const userSchema = new Schema({
     image : String, //
     gender: { type: String, required: true },
     age : Number,
-    heigh: Number,
+    height: Number,
     weight: Number,
     exercices: String,
     routines: String
