@@ -1,16 +1,19 @@
+<h1>Edit profile</h1>
+
 <form action="/private/profile/edit" method="post">
     <label for="">Email:</label>
-    <input type="text" name="email" value="{{user.email}}">
+<input type="text" name="email" value="{{user.email}}">
 
-    <label for="">age:</label>
-    <input type="text" name="age" value="{{user.age}}">
+    <label for="">Age:</label>
+<input type="text" name="age" value="{{user.age}}">
 
     <label for="">Height:</label>
-    <input type="text" name="height" value="{{user.height}}">
+<input type="text" name="height" value="{{user.height}}">
 
     <label for="">Weight:</label>
-    <input type="text" name="weight" value="{{user.weight}}">
+<input type="text" name="weight" value="{{user.weight}}">
 
     <button type="submit">EDIT</button>
 </form>
 
+   <p><a href="/private/profile">Return profile</a></p>

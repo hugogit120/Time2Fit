@@ -1,20 +1,28 @@
 const express = require("express");
 const router = express.Router();
-const { loggedIn, notLoggedIn} = require('../middlewareForAuth/middlewareAuth')
- 
+
+//Add the model 
 const User = require("../models/User");
 
+//Middlewares
+const { LoggedIn, NotLoggedIn } = require("../MiddlewareForAuth/middleware");
+
+//requerimos bcrypt para encriptar los passwords
 const bcrypt = require("bcryptjs");
 const bcryptSalt = 10;
 
 
 
 ////////////////////SIGNUP//////////////////////////////
-//Route del signup:
-router.get("/signup", loggedIn, (req, res, next) => {
+//Route del signup con middleware de logeado o no:
+router.get("/signup", LoggedIn, (req, res, next) => {
     res.render("auth/signup");
 });
 
+
+// Recibimos datos del formulario  signup
+//genera el salt y hace un hash del password 
+//Crea un objeto User y redigire
 router.post("/signup", (req, res, next) => {
     const { username, password, email, gender } = req.body;
     const salt = bcrypt.genSaltSync(bcryptSalt);
@@ -75,9 +83,8 @@ router.post("/signup", (req, res, next) => {
 
 ////////////////LOGIN////////////////////
 //Route del login:
-router.get("/login", loggedIn, (req, res, next) => {
+router.get("/login", (req, res, next) => {
     res.render("auth/login");
-
 });
 
 router.post("/login", (req, res, next) => {
@@ -106,6 +113,9 @@ router.post("/login", (req, res, next) => {
         }
 
         if (bcrypt.compareSync(thePassword, user.password)) {
+            // Save the login in the session!
+            //the request object has a property called session where we can add the values we want to store on it. In this case, we are setting it up with the user’s information.
+            // session is a cookie to keep the user data cuando esta logeado
             req.session.currentUser = user;
             res.redirect("/private/home");
             return;
@@ -119,15 +129,5 @@ router.post("/login", (req, res, next) => {
         next(error);
     })
 });
-
-router.post('/logout', notLoggedIn, (req, res, next) => {
-    console.log(` bye bye ${req.session.currentUser.username}`);
-    delete req.session.currentUser;
-    res.redirect('/');
-})
-
-
-
-
 
 module.exports = router;

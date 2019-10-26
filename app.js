@@ -2,7 +2,6 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser'); // lo instale hoy 26/10/2019 14:33
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const session = require('express-session');
@@ -23,6 +22,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const privateRouter = require('./routes/private');
+const routinesRouter = require('./routes/routines')
 
 
 const app = express();
@@ -46,10 +46,12 @@ app.use(session({ //esto es un middleware
   })
 }));
 
+// Router:
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter); 
 app.use('/private', privateRouter);
+app.use('/routines', routinesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
