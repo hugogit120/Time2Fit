@@ -35,6 +35,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 hbsutils.registerPartials(path.join(__dirname, "/views/partials"));
 hbsutils.registerWatchedPartials(path.join(__dirname, "/views/partials"));
+hbs.registerHelper('inArray', function (elem, list) {
+  if (list.indexOf(elem) > -1) {
+    return false;
+  }
+  return true;
+});
 
 app.use(logger('dev'));
 app.use(express.json());

@@ -1,0 +1,22 @@
+<h1>{{routine.title}}</h1>
+{{#each exercises}}
+    <h1> {{this.title}} </h1>
+
+
+    <form action="/routines/{{../routine._id}}/exercise/{{this._id}}/add" method="POST">
+
+        <button type="submit"> ADD </button>
+    
+    </form>
+
+
+
+
+
+    <form action=""/routines/{{../routine._id}}/exercise/{{this._id}}/delete method="POST">
+    
+    <button type="submit">Delete</button>
+    
+    </form>
+
+{{/each}}

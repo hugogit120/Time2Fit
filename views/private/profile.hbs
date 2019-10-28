@@ -20,8 +20,6 @@
 
 
 
-
-
     <p><a href="/private/profile/edit">Edit Profile</a></p>
     <p><a href="/routines/add">Create Routine</a></p>
     
@@ -31,9 +29,10 @@
 <div>
     <h2>{{this.title}}</h2>
     <p>{{this.description}}</p>
-<form action="/private/profile/delete" method="POST">
-<button>Delete</button>
-</form>
+<form action="/private/routines/delete/{{this._id}}" method="POST">
+    <button>Delete</button>
     
+</form>
+    <a href="/routines/{{this._id}}">Edit</a>
 </div>
 {{/each}}

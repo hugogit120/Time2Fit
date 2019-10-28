@@ -83,13 +83,22 @@ router.post('/add/favorite/:id', async(req, res, next) => {
    req.session.currentUser = user
    res.redirect('/private/home')
   }
-
-  
 });
 
 router.post('/logout', (req, res, next) => {
   delete req.session.currentUser
   res.redirect('/')
 });
+
+router.post('/routines/delete/:id', (req, res, next) => {
+  const {id} = req.params;
+  Routine.findByIdAndRemove(id)
+    .then(() => res.redirect("/private/profile")
+  )
+    .catch((error) => console.log(error)
+  )
+
+});
+
 
 module.exports = router;

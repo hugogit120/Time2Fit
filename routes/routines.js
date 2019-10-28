@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Routine = require('../models/Routine');
+const Exercise = require('../models/Exercise');
+const User = require('../models/User')
 
 //GET routine page:
 router.get('/add', function(req, res, next) {
@@ -20,6 +22,36 @@ router.post('/add', (req, res, next) => {
       console.log(error);
     })
   });
+
+//hago get para entrar en la rutina
+router.get('/:id',(req, res, next) => {
+  const { id } = req.params;
+  Routine.findById(id)
+    .then((routine) => {
+      User.findById(req.session.currentUser._id)
+        .populate('exercises')
+        .then (user => {
+          const exercises = user.exercises
+          res.render('routines/routine-detail', {routine, exercises});
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+})
+
+router.post('/:routineId/exercise/:exerciseId/add', (req, res, next) => {
+  const {routineId, exerciseId} = req.params;
+  Routine.findByIdAndUpdate(routineId, { $push: {exercises: exerciseId}}, {new:true})
+  .then(routine => {
+    
+  })
+} )
+
+
 
 
 module.exports = router ;
