@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const Exercise = require('../models/Exercise');
+const Routine = require('../models/Routine');
+
 const { loggedIn, notLoggedIn } = require('../middlewareForAuth/middlewareAuth')
 // GET home page.:
 router.get('/home', notLoggedIn,  async (req, res, next) => {
@@ -12,9 +14,12 @@ router.get('/home', notLoggedIn,  async (req, res, next) => {
 
 
 //GET profile page:
-router.get('/profile', notLoggedIn, function(req, res, next) {
-    const user = req.session.currentUser;
-  res.render('private/profile', {user}); 
+router.get('/profile', notLoggedIn, async (req, res, next) => {
+  const userId = req.session.currentUser._id
+  const user = await User.findById(userId)
+  const routines = await Routine.find({owner: userId})
+  routines.reverse()
+  res.render('private/profile', { user, routines}); 
 });
 
 // formulario para editar el perfil del usuario:
@@ -35,6 +40,10 @@ User.findByIdAndUpdate(user._id, { email, age, height, weight },{ new:true})
      req.session.currentUser = editedUser;
      res.redirect("/private/profile")
   })
+});
+
+router.post('/profile/delete', (req, res, next) => {
+  //logica para borrar routine de User
 });
 
 //Recibe por params el ID del user, lo busca en la BD y renderiza detailles

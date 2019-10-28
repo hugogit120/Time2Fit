@@ -3,6 +3,13 @@
 <p>{{user.username}}</p>
 <p>Email: {{user.email}}</p>
 <p>Gender: {{user.gender}}</p>
+{{#if user.age}}
+<p>Age: {{user.age}}</p>
+{{else}}
+<p>Age: User hasnt provided age</p>
+{{/if}}
+
+
 
 <!-- <p>Age: {{user.age}}</p>
 <p>Height: {{user.password}}</p>
@@ -19,15 +26,14 @@
     <p><a href="/routines/add">Create Routine</a></p>
     
     <br><br>
-
-    <div>
-
-        <h1>Routine 1</h1><br>
-    </div>
-
-
-
-    <div>
+<h1>Routines ({{routines.length}})</h1>
+{{#each routines}}
+<div>
+    <h2>{{this.title}}</h2>
+    <p>{{this.description}}</p>
+<form action="/private/profile/delete" method="POST">
+<button>Delete</button>
+</form>
     
-        <h1>Routine 2</h1><br>
-    </div>
+</div>
+{{/each}}

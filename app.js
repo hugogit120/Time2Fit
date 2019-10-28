@@ -6,6 +6,8 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const Mongostore = require('connect-mongo')(session);
+const hbs = require("hbs");
+const hbsutils = require("hbs-utils")(hbs);
 
 
 mongoose
@@ -31,6 +33,8 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+hbsutils.registerPartials(path.join(__dirname, "/views/partials"));
+hbsutils.registerWatchedPartials(path.join(__dirname, "/views/partials"));
 
 app.use(logger('dev'));
 app.use(express.json());
