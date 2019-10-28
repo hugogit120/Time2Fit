@@ -9,7 +9,8 @@ const Mongostore = require('connect-mongo')(session);
 
 
 mongoose
-  .connect('mongodb://localhost/projectT2F', { useNewUrlParser: true })
+  .connect('mongodb://localhost/projectT2F', { useNewUrlParser: true,
+useUnifiedTopology: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -39,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({ //esto es un middleware
   secret: 'basic-auth-secret',
-  cookie: { maxAge: 60000 },
+  cookie: { maxAge: 60000000 },
   store: new Mongostore({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60 // 1 day

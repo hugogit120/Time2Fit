@@ -12,7 +12,8 @@ const userSchema = new Schema({
     age : Number,
     height: Number,
     weight: Number,
-    exercises:[{type: ObjectId, ref:"Exercise"}]
+    exercises:[{type: ObjectId, ref:"Exercise"}],
+    routines: [{type: ObjectId, ref:"Routine"}]
     
 }, {
     timestamps: true

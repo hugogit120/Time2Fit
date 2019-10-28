@@ -1,23 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
-const Exercise = require('../models/Exersice');
-
+const Exercise = require('../models/Exercise');
+const { loggedIn, notLoggedIn } = require('../middlewareForAuth/middlewareAuth')
 // GET home page.:
-router.get('/home', (req, res, next) => {
-  Exercise.find()
-      .then(allExercise => {
-        res.render('private/home', { exercise: allExercise });
-      })
-      .catch(err => {
-        console.log(err)
-      })
+router.get('/home', notLoggedIn,  async (req, res, next) => {
+ const allExercise = await Exercise.find()
+  res.render('private/home', { exercise: allExercise });
 });
 
 
 
 //GET profile page:
-router.get('/profile', function(req, res, next) {
+router.get('/profile', notLoggedIn, function(req, res, next) {
     const user = req.session.currentUser;
   res.render('private/profile', {user}); 
 });
@@ -55,5 +50,37 @@ router.get('/user/:id', (req, res, next) => { // user/:id ==> cualquier id
      .catch(next)
    });
 
+   //en formulario poner ruta completa porque es html y no es javascript
+//Recibe por params el ID del ejercicio, lo sube a la base de datos del usuario y renderiza la misma pagina home
+
+// buscar el usuario en la base de datos y guardarlo en una variable
+  // recogemos la lsita de ejercicios favoritos del user (array)
+  // hacemos push del ejercicio (id) al array
+  // update del user en la base de datos
+  // update del user en la current session
+  // redirect o render a la misma pagina
+router.post('/add/favorite/:id', async(req, res, next) => {  
+  const id = req.params.id;
+  //console.log(id);
+  const currentUser = req.session.currentUser;
+
+  console.log(currentUser.exercises.includes(id))
+
+ if (currentUser.exercises.includes(id)) {
+    res.redirect('/private/home')
+  }
+  else {
+   const user = await User.findByIdAndUpdate(currentUser._id, { $push: { exercises: id } }, { new: true })
+   req.session.currentUser = user
+   res.redirect('/private/home')
+  }
+
+  
+});
+
+router.post('/logout', (req, res, next) => {
+  delete req.session.currentUser
+  res.redirect('/')
+});
 
 module.exports = router;

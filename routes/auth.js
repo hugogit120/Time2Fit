@@ -5,7 +5,7 @@ const router = express.Router();
 const User = require("../models/User");
 
 //Middlewares
-const { LoggedIn, NotLoggedIn } = require("../MiddlewareForAuth/middleware");
+const { loggedIn, notLoggedIn } = require("../middlewareForAuth/middlewareAuth");
 
 //requerimos bcrypt para encriptar los passwords
 const bcrypt = require("bcryptjs");
@@ -15,7 +15,7 @@ const bcryptSalt = 10;
 
 ////////////////////SIGNUP//////////////////////////////
 //Route del signup con middleware de logeado o no:
-router.get("/signup", LoggedIn, (req, res, next) => {
+router.get("/signup", loggedIn, (req, res, next) => {
     res.render("auth/signup");
 });
 
@@ -83,7 +83,7 @@ router.post("/signup", (req, res, next) => {
 
 ////////////////LOGIN////////////////////
 //Route del login:
-router.get("/login", (req, res, next) => {
+router.get("/login", loggedIn, (req, res, next) => {
     res.render("auth/login");
 });
 

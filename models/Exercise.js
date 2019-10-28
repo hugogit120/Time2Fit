@@ -5,7 +5,7 @@ const exerciseSchema = new Schema({
 title : String,
 description : String,
 image : String,
-category : String,
+categories : [String],
 });
 
 const Exercise = mongoose.model("Exercise", exerciseSchema);

@@ -1,20 +1,27 @@
 <h1>Exercises</h1>
 
-{{#each exercise}}
-<a href="exercise/{{this._id}}">{{this.title}}</a>
-
-<a href="exercise/{{this._id}}">{{this.description}}</a>
-
-
-
-
-<form action="/celebrities/delete/{{this._id}}" method="POST">
-
-<button class="edit-button">ADD TO FAVORITE</button>
+<a href="/private/profile">My Profile</a>
+<form action="/private/logout" method="post">
+<button href="/private/logout">Logout</button>
 
 </form>
-{{/each}}
 
- <a href="/private/profile">My Profile</a>
+<div>
+
+{{#each exercise}}
+
+
+<img src="{{this.image}}" alt="">
+
+<a href="exercise/{{this._id}}">{{this.title}}</a>
+
+<p>{{this.description}}</p>
+
+<form action="/private/add/favorite/{{this._id}}" method="POST">
+    <button type="submit" class="edit-button">ADD TO FAVORITE</button>
+</form>
+{{/each}}
+</div>
+ 
 
  

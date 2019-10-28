@@ -1,8 +1,73 @@
-body {
+/* body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+} */
+
+.buttonlogin {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 2%;
+  text-align: center;
+  font-size: 18px;
+  width: 118px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.backgroundlogin {
+  display: flex;
+  flex-direction: column;
+  background-image: url("/images/backgroundphoto.jpg");
+  height: 100vh;
+  background-size: cover;
+  justify-content: center;
+  align-content: center;
+  background-position-x: center;
+}
+
+
+.formulariologin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5%;
+  /* para que el form quede en el centro: */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.usernamelogin {
+  padding: 2%;
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+}
+
+.passwordlogin {
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+}
+
+.account-message {
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.mkt {
+  color: green;
+  margin-left: auto;
+  margin-right: auto;
 }

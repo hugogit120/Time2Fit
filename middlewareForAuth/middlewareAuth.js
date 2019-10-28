@@ -1,5 +1,4 @@
 const loggedIn = (req, res, next) => {
-    console.log(req.session.currentUser);
     if (req.session.currentUser) {
         return res.redirect('/private/home');
     }

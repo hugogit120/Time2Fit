@@ -1,15 +1,26 @@
-<form action="/auth/login" method="POST" id="form">
-    <h2>Login</h2>
+<div class="backgroundlogin">
+    <div class="formulariologin">
+        <form action="/auth/login" method="POST" id="form">
 
-    <label for="username">Username</label>
-    <input type="text" name="username">
+            <div class="usernamelogin">
+                <label for="username"></label>
+                <input type="text" name="username" placeholder="Username">
+                <br>
+    
 
-    <label for="password">Password</label>
-    <input type="password" name="password"> {{#if errorMessage }}
-    <div class="error-message">{{ errorMessage }}</div>
-    {{/if}}
+                <label for="password"></label>
+                <input type="password" name="password" placeholder="Password">
+            </div>
+            {{#if errorMessage }}
+            <div class="error-message">{{ errorMessage }}</div>
+            {{/if}}
 
-    <button>log in</button>
-
+                <button type="submit" class="buttonlogin" >log in</button>
+            
+    </div>
+    </form>
     <p class="account-message"> Don't have an account? <a href="/auth/signup">Sign up</a></p>
-</form>
+
+    <div class="mkt">
+        <h1>It’s time to fit!.Your app to be fit with more than 100 exercises</h1>
+    </div>
