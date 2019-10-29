@@ -11,6 +11,20 @@ router.get('/home', notLoggedIn,  async (req, res, next) => {
   res.render('private/home', { exercise: allExercise });
 });
 
+// GET exercises details:
+router.get('/exercise/:id', (req, res, next) => {
+  const id = req.params.id
+  console.log(id);
+  Exercise.findById(id)
+    .then(exercise => {
+      console.log(exercise)
+      res.render('private/home-detail', exercise);
+    })
+    .catch(error => {
+      console.log(error)
+    })
+});
+
 
 
 //GET profile page:
@@ -42,9 +56,19 @@ User.findByIdAndUpdate(user._id, { email, age, height, weight },{ new:true})
   })
 });
 
+//borro usuario y destruyo sesión 
+//En la vista he de hacerla con un for.
+
 router.post('/profile/delete', (req, res, next) => {
-  //logica para borrar routine de User
-});
+  console.log('hola')
+  const id = req.session.currentUser._id;
+  User.findByIdAndRemove(id)
+    .then(() => {
+      delete req.session.currentUser
+      res.redirect('/')
+    })
+    .catch((error) => console.log(error))
+})
 
 //Recibe por params el ID del user, lo busca en la BD y renderiza detailles
 router.get('/user/:id', (req, res, next) => { // user/:id ==> cualquier id

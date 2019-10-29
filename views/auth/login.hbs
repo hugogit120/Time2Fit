@@ -1,29 +1,35 @@
-<div>
+<div class="backgroundlogin">
+
+<div class="logInBox" >
+    
+            <form action="/auth/login" method="POST" id="form">
+
+                <div class="usernamelogin">
+
+                    <div class="logInInput">
+                        
+                        <input type="text" value="" name="username" placeholder="Username">
+                    </div>
+
+                    <div class="logInInput">
+                        <input type="password" value="" name="password" placeholder="Password">
+
+                    </div>
+
+                </div>
+                    {{#if errorMessage }}
+                        <div class="error-message">{{ errorMessage }}</div>
+                    {{/if}}
+
+                    <button type="submit" class="buttonlogin" >log in</button>
+           </form>  
+     
+
 </div>
 
-<div class="backgroundlogin" >
-    <div class="formulariologin">
-        <form action="/auth/login" method="POST" id="form">
+</div>
 
-            <div class="usernamelogin">
-                <label for="username"></label>
-                <input type="text" name="username" placeholder="Username">
-                <br>
-    
 
-                <label for="password"></label>
-                <input type="password" name="password" placeholder="Password">
-            </div>
-            {{#if errorMessage }}
-            <div class="error-message">{{ errorMessage }}</div>
-            {{/if}}
 
-                <button type="submit" class="buttonlogin" >log in</button>
-            
-    </div>
-    </form>
-    <p class="account-message"> Don't have an account? <a href="/auth/signup">Sign up</a></p>
-
-    <div class="mkt">
-        <h1>It’s time to fit!.Your app to be fit with more than 100 exercises</h1>
-    </div>
+<p class="account-message"> Join us <a href="/auth/signup">Sign up</a></p>
+   
