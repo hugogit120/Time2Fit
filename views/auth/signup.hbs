@@ -1,31 +1,40 @@
-<form id="form" action="/auth/signup" method="POST">
-
-    <input type="text" name="username" placeholder="username">
-    <label for="username">Username</label>
-    <br>
-
-    <input type="text" name="email" placeholder="Your email">
-
-    <label for="email">Email</label>
-    <br>
-
-    <input type="password" name="password" placeholder="********">
-
-    <label for="password">Password</label>
-    <br>
-
-     <input type="radio" name="gender" value="male" > male <br>
-     <input type="radio" name="gender" value="female" > female <br>
-     <input type="radio" name="gender" value="other" > other 
-
+<div class="backgroundlogin">
     
+        <div class="signUpBox">
+
+            <form id="form" action="/auth/signup" method="POST">
+
+                <div class="logInInput">
+                    <input required type="text"  name="username" placeholder="username">
+                </div>
+
+                <div class="logInInput">
+                    <input required type="text" name="email" placeholder="Your email">
+                </div>
+               
+                <div class="logInInput">
+                    <input required type="password" name="password" placeholder="password">
+                </div>
+            
+                <div class="radio">
+                <input type="radio" name="gender" value="male" > <span>Male</span>  <br>
+                <input type="radio" name="gender" value="female" > <span>Female</span> <br>
+                <input type="radio" name="gender" value="other" > <span>Other</span>  
+                </div>
+                
 
 
-    <button type="submit">Create account </button>
-</form>
+                <button type="submit"  class="buttonlogin">Create account </button>
+            </form>
+        </div>
 
 {{#if errorMessage}}
 <div class="error-message">{{ errorMessage }}</div>
 {{/if}}
 
 <a href="/auth/login">Login</a>
+
+</div>
+
+
+

@@ -15,8 +15,9 @@ div {
 } */
 
 /* INDEX */
-img {
-  width: 50%;
+
+img{
+  width: 40vh;
 }
 
 .bg-image{
@@ -94,6 +95,7 @@ img {
 
 /* //LOGIN */
 .buttonlogin {
+  font-family: 'Black Ops One';
  background-color: black;
   border: none;
   color: white;
@@ -151,6 +153,30 @@ img {
   margin-left: 30%;
 }
 
+.radio input[type=radio] {
+  border: 0px;
+  width: 100%;
+  height: 45px;
+  margin-top: 20px;
+}
+
+span {
+  font-size: 60px;
+  color: white;
+}
+
+.signUpBox {
+  text-align: center;
+    position: absolute;
+    top: 26%;
+    background-color: rgba(0,0,0, 0.4);
+    height: 53%;
+}
+.error-message {
+  color: white;
+  font-size: 45px;
+}
+
 .mkt {
   color: green;
   margin-left: auto;
@@ -159,20 +185,35 @@ img {
 
 .exercises-container {
   justify-content: space-around;
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
 }
 
 .exercise-card {
-  width: 400px;
-  height: 200px;
-  display: flex;
-  margin-right: 20px;
-  flex-direction: column;
+
+    display: flex;
+    margin-right: 20px;
+    flex-direction: column;
+    align-items: center;
+    font-size: 50px;
 }
 
-.exercise-card img {
-  width: 100%;
-  height: 100%;
+/*Borrar este css y clases de home*/
+
+.homeh1 {
+  font-size: 80px;
+}
+
+.homedeborrar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 50px;
+}
+
+.edit-button {
+  font-size: 40px;
 }
