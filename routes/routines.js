@@ -45,9 +45,16 @@ router.get('/:id',(req, res, next) => {
 
 router.post('/:routineId/exercise/:exerciseId/add', (req, res, next) => {
   const {routineId, exerciseId} = req.params;
-  Routine.findByIdAndUpdate(routineId, { $push: {exercises: exerciseId}}, {new:true})
-  .then(routine => {
-    res.redirect(`/routines/${routineId}`)
+  Routine.findById(routineId).then(routine =>{
+    if(!routine.exercises.includes(exerciseId)){
+      console.log("trueeeee")
+      Routine.findByIdAndUpdate(routineId, { $push: {exercises: exerciseId}}, {new:true})
+      .then(routine => {
+        res.redirect(`/routines/${routineId}`)
+      })
+    }else{
+      res.redirect(`/routines/${routineId}`)
+    }
   })
 } )
 

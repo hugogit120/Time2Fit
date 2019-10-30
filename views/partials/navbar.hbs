@@ -1,15 +1,24 @@
-<nav class="uk-navbar-container" uk-navbar>
-    <div class="uk-navbar-left">
-        <ul class="uk-navbar-nav">
-            <li><a href="/">INDEX</a></li>
-
-        </ul>
+<div class="nav">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-header">
+        <div class="nav-title">
+            Time2Fit
+        </div>
     </div>
-    <div class="uk-navbar-right">
-        <ul class="uk-navbar-nav">
-            <li><a href="/auth/signup">Sign Up</a></li>
-            <li><a href="/auth/login">Login</a></li>
-
-        </ul>
+    <div class="nav-btn">
+        <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
     </div>
-</nav>
+    <div class="nav-links">
+        <a href="/private/home">Exercices</a>
+        <a href="/private/profile">Profile</a>
+        <a href="/">
+            <form action="/private/logout" method="post"></form>Logout
+        </a>
+
+    </div>
+
+</div>

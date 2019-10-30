@@ -1,13 +1,19 @@
-<h1>{{routine.title}}</h1>
+<h1>THIS IS MY ROUTINE={{routine.title}}</h1>
+
+
+
+
+
+<div>
 {{#each exercises}}
+    <h1>favorite excercice</h1>
     <h1> {{this.title}} </h1>
 
-
-    {{#inArray this._id ../routine.exercises}}
+    
         <form action=""/routines/{{../routine._id}}/exercise/{{this._id}}/delete method="POST">
             <button type="submit">Delete</button>
         </form>
-    {{/inArray}}
+
 
 
         <form action="/routines/{{../routine._id}}/exercise/{{this._id}}/add" method="POST">
@@ -15,7 +21,7 @@
             <button type="submit"> ADD </button>
         
         </form>
-
+</div>
 
 
 
