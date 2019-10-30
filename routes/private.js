@@ -109,7 +109,8 @@ router.post('/add/favorite/:id', async(req, res, next) => {
   }
 });
 
-router.post('/logout', (req, res, next) => {
+router.post('/logout', notLoggedIn, (req, res, next) => {
+  console.log(req.session.currentUser)
   delete req.session.currentUser
   res.redirect('/')
 });

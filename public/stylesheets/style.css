@@ -11,11 +11,13 @@ div {
   flex-direction: column;
 } */
 
-/* *{
+/*/////////// RESET/////////////////
+*{
   padding: 0;
   margin: 0;
 } */
 
+/*////////////BODY////////////////*/
 body {
   background-color: wheat;
   min-height: 100vh;
@@ -23,7 +25,7 @@ body {
   background-color: #A8D8CD;
 }
 
-/* !!!!INDEX!!!! */
+/*/////////////INDEX///////////// */
 
 img{
   width: 40vh;
