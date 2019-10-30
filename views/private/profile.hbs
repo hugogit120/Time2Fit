@@ -1,4 +1,4 @@
-{{>navbar}}
+{{!-- {{>navbar}}
 <h1>Profile</h1>
 
 <p>{{user.username}}</p>
@@ -36,4 +36,90 @@
     </form>
     <a href="/routines/{{this._id}}">Edit</a>
 </div>
-{{/each}}
+{{/each}} --}}
+
+{{>navbar}}
+<section class="profile">
+    <div class="title">
+        <h1>Profile</h1>
+    </div>
+    <div class="personaldata">
+        <div class="name">
+            <p>{{user.username}}</p>
+        </div>
+        <p>Email: {{user.email}}</p>
+        <p>Gender: {{user.gender}}</p>
+        {{#if user.age}}
+        <p>Age: {{user.age}}</p>
+        {{else}}
+        <p>Age: User hasnt provided age</p>
+        {{/if}}
+    </div>
+
+    <!-- <p>Age: {{user.age}}</p>
+<p>Height: {{user.password}}</p>
+<p>Weight: {{user.password}}</p>
+<p>Exercices: {{user.password}}</p>
+<p>Routines: {{user.password}}</p> -->
+
+    {{!-- Forma errónea=> el link estaría ligado al texto y no la botón. 
+        <button class="button-p">
+            <a href="/private/profile/edit">Edit <br>Profile</a>
+        </button>
+// --}}
+
+    <div class="container-buttons">
+        <a href="/private/home">
+            <button class="button-p">
+                Return<br>exercises
+            </button>
+        </a>
+        <a href="/private/profile/edit">
+            <button class="button-p">
+                Edit<br>profile
+            </button>
+        </a>
+        <a href="/routines/add">
+            <button class="button-p">
+                Add<br>routine
+            </button>
+        </a>
+    </div>
+    <br>
+    <div>
+
+        <form action="/private/profile/delete/" method="POST">
+            <button class="button-delete" type="submit"><a href="/private/profile/delete/">Delete Profile</a></button>
+        </form>
+
+    </div>
+
+    <br><br>
+    <h1>Routines ({{routines.length}})</h1>
+    <div class="container-routine">
+
+        {{#each routines}}
+
+        <div class="routine">
+            <h2>{{this.title}}</h2>
+            <p>{{this.description}}</p>
+        </div>
+
+        <button class="button-edit">
+            <a href="/routines/{{this._id}}">
+                <button class="button-edit">
+                    Edit
+                </button>
+            </a>
+        </button>
+
+
+        <form action="/private/routines/delete/{{this._id}}" method="POST">
+            <button class="button-delete" type="submit">Delete</button>
+        </form>
+
+
+    </div>
+    {{/each}}
+    </div>
+</section>

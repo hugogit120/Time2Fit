@@ -1,10 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Black+Ops+One&display=swap');
 
-/* body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
 
+/*
 a {
   color: #00B7FF;
 }
@@ -14,7 +11,19 @@ div {
   flex-direction: column;
 } */
 
-/* INDEX */
+/* *{
+  padding: 0;
+  margin: 0;
+} */
+
+body {
+  background-color: wheat;
+  min-height: 100vh;
+  height: auto;
+  background-color: #A8D8CD;
+}
+
+/* !!!!INDEX!!!! */
 
 img{
   width: 40vh;
@@ -190,10 +199,10 @@ span {
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    background-color: #A8D8CD;
 }
 
 .exercise-card {
-
     display: flex;
     margin-right: 20px;
     flex-direction: column;
@@ -202,6 +211,11 @@ span {
 }
 
 /*Borrar este css y clases de home*/
+/*//////EXERCISES - HOME PAGE////////////*/
+.title-home{
+  font-family: 'Black Ops One', cursive;
+  letter-spacing: 2px;
+}
 
 .homeh1 {
   font-size: 80px;
@@ -211,19 +225,35 @@ span {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  font-size: 50px;
+  font-size: 35px;
+  background-color: #377375;
+  width: 100%;
 }
 
 .edit-button {
-  font-size: 40px;
+  font-size: 30px;
+  border-block-color: light;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  background-color: #CE4A50;
+  color: #DDEFE3;
+  border-radius: 30px;
+  padding: 8px;
+}
+
+
+
+.exercise-card a {
+  color: white;
+  text-decoration: none;
+  padding: 25px;
+  font-family: 'Black Ops One', cursive;
 }
 
 /*!!!!!!!!!!!!!!NAVBAR!!!!!!!!!!!!!!!!!!!!!!*/
-
 .nav {
   height: 120px;
   width: 100%;
-  background-color: #4d4d4d;
+  background-color: #2A484E;
   position: relative;
 }
 
@@ -235,7 +265,7 @@ span {
   display: inline-block;
   font-size: 22px;
   color: #fff;
-  padding: 10px 10px 10px 10px;
+  padding: 30px;
 }
 
 .nav > .nav-btn {
@@ -250,13 +280,14 @@ span {
 
 .nav > .nav-links > a {
   display: inline-block;
-  padding: 13px 10px 13px 10px;
+  padding: 30px 30px 3px 30px;
   text-decoration: none;
   color: #efefef;
 }
 
 .nav > .nav-links > a:hover {
-  background-color: rgba(0, 0, 0, 0.3);
+  
+  background-color: #2A484E;
 }
 
 .nav > #nav-check {
@@ -277,7 +308,7 @@ span {
     padding: 13px;
   }
   .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.12);
   }
   .nav > .nav-btn > label > span {
     display: block;
@@ -289,7 +320,7 @@ span {
     position: absolute;
     display: block;
     width: 100%;
-    background-color: #333;
+    background-color:#2A484E;
     height: 0px;
     transition: all 0.3s ease-in;
     overflow-y: hidden;
@@ -304,7 +335,192 @@ span {
     height: 0px;
   }
   .nav > #nav-check:checked ~ .nav-links {
-    height: calc(100vh - 50px);
+  height: calc(25vh - 50px);
     overflow-y: auto;
   }
+}
+
+/* EDIT ROUTINE HBS*/
+.routine-title {
+  font-family: 'Black Ops One', cursive;
+  display: flex;
+  justify-content: center;
+ font-size: 80px;
+ 
+}
+
+/* .routine-description {
+  display: flex;
+  font-size: 50px;
+  border: 1px solid black;
+justify-content: center;
+} */
+
+.routine-ex {
+ display: flex;
+ flex-direction: column;
+ border: 1px solid black;
+background-color: #377375;
+}
+
+.routine-title h1{
+  letter-spacing: 2px;
+  color: #DDEFE3;
+}
+
+.routine-description {
+  font-size: 30px;
+  margin: 0;
+  color: #DDEFE3;
+}
+
+.just-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.exercise-box{
+    padding-top: 30px;
+    display: flex;
+    height: 20vh;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-size: 40px;
+    margin: 40px;
+    background-color: #3A787A;
+    border-radius: 40px;
+}
+
+.routine-detail-body {
+  background-color: #DDEFE3;
+}
+
+.exe-link {
+  height: 0;
+  margin: 20px;
+}
+.exe-link a {
+
+  color: white;
+   background-color: #CE4A50;
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 0 rgba(0,0,0,0.19);
+}
+
+/*/////////FOOTER/////////////////////*/
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #377375;
+  color: white;
+  text-align: center;
+}
+
+/*CSS de ALEX para PERFIL !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+.container-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+
+}
+
+.profile {
+  background-color: #a8d8cd;
+
+}
+
+.title {
+  background-color: #377375;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.button-p {
+  font-family: 'Black Ops One';
+  background-color: #2a484b;
+  border: none;
+  color: white;
+  padding: 2%;
+  width: 15em;
+  text-align: center;
+  font-size: 15px;
+  width: 15em;
+  border-radius: 30px;
+}
+
+/* pq no me funciona el hover? */
+.button-p:hover {
+  border-color: rgba(255, 255, 255, 1);
+}
+
+.button-p2 {
+  font-family: 'Black Ops One';
+  background-color: #ce4a50;
+  color: white;
+  border-radius: 10px;
+  justify-content: flex-end;
+  width: 10em;
+  text-align: center;
+}
+
+.container-buttons>a {
+  height: min-content;
+  display: flex;
+}
+
+
+.personaldata {
+  font-family: Verdana, Tahoma, sans-serif;
+
+}
+
+.name {
+  font-family: Verdana, Tahoma, sans-serif;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.container-routine {
+  display: flex;
+  flex-direction: row;
+}
+
+.routine {
+  background-color: #a8d8cd;
+  display: flex;
+  flex-direction: column;
+  margin: 2px solid;
+}
+
+.button-edit {
+    font-family: 'Black Ops One';
+    background-color: #2a484b;
+    border: none;
+    color: white;
+    padding: 2%;
+    width: 15em;
+    text-align: center;
+    font-size: 15px;
+    width: 15em;
+    border-radius: 30px;
+
+
+}
+
+.button-delete {
+  font-family: 'Black Ops One';
+  background-color: #ce4a50;
+  color: white;
+  border-radius: 10px;
+  width: 10em;
+  text-align: center;
+
+
 }
