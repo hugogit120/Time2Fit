@@ -1,3 +1,4 @@
+require("dotenv").config();
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -5,20 +6,10 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const session = require('express-session');
-const Mongostore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo')(session);
 const hbs = require("hbs");
 const hbsutils = require("hbs-utils")(hbs);
 
-
-mongoose
-  .connect('mongodb://localhost/projectT2F', { useNewUrlParser: true,
-useUnifiedTopology: true })
-  .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  })
-  .catch(err => {
-    console.error('Error connecting to mongo', err)
-  });
 
 
 const indexRouter = require('./routes/index');
@@ -27,8 +18,31 @@ const authRouter = require('./routes/auth');
 const privateRouter = require('./routes/private');
 const routinesRouter = require('./routes/routines')
 
-
 const app = express();
+
+mongoose.connect(process.env.MONGODB_URI, {
+    keepAlive: true,
+    useNewUrlParser: true,
+    reconnectTries: Number.MAX_VALUE,
+    useUnifiedTopology: true
+  });
+  
+  app.use(
+    session({
+      store: new MongoStore({
+        mongooseConnection: mongoose.connection,
+        ttl: 24 * 60 * 60
+      }),
+      secret: process.env.API_SECRET,
+      resave: true,
+      saveUninitialized: true,
+      cookie: {
+        httpOnly: true,
+        maxAge: 24 * 60 * 60 * 1000
+      }
+    })
+  );
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -48,14 +62,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({ //esto es un middleware
-  secret: 'basic-auth-secret',
-  cookie: { maxAge: 60000000 },
-  store: new Mongostore({
-    mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60 // 1 day
-  })
-}));
+
 
 // Router:
 app.use('/', indexRouter);
