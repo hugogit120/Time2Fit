@@ -47,9 +47,11 @@ router.post('/:routineId/exercise/:exerciseId/add', (req, res, next) => {
   const {routineId, exerciseId} = req.params;
   Routine.findByIdAndUpdate(routineId, { $push: {exercises: exerciseId}}, {new:true})
   .then(routine => {
-    
+    res.redirect(`/routines/${routineId}`)
   })
 } )
+
+
 
 
 

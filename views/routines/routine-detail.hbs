@@ -3,20 +3,20 @@
     <h1> {{this.title}} </h1>
 
 
-    <form action="/routines/{{../routine._id}}/exercise/{{this._id}}/add" method="POST">
-
-        <button type="submit"> ADD </button>
-    
-    </form>
-
-
+    {{#inArray this._id ../routine.exercises}}
+        <form action=""/routines/{{../routine._id}}/exercise/{{this._id}}/delete method="POST">
+            <button type="submit">Delete</button>
+        </form>
+    {{/inArray}}
 
 
+        <form action="/routines/{{../routine._id}}/exercise/{{this._id}}/add" method="POST">
 
-    <form action=""/routines/{{../routine._id}}/exercise/{{this._id}}/delete method="POST">
-    
-    <button type="submit">Delete</button>
-    
-    </form>
+            <button type="submit"> ADD </button>
+        
+        </form>
+
+
+
 
 {{/each}}

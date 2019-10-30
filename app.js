@@ -37,9 +37,9 @@ hbsutils.registerPartials(path.join(__dirname, "/views/partials"));
 hbsutils.registerWatchedPartials(path.join(__dirname, "/views/partials"));
 hbs.registerHelper('inArray', function (elem, list) {
   if (list.indexOf(elem) > -1) {
-    return false;
-  }
-  return true;
+    return '<h1>hola</h1>'
+  } 
+  return false;
 });
 
 app.use(logger('dev'));
