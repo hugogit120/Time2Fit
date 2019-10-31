@@ -11,7 +11,7 @@
     <div class="exercise-card">
         <a class="exercise-title" href="exercise/{{this._id}}">{{this.title}}</a>
         <a href="exercise/{{this._id}}"><img
-                src="https://fitnessexpertawards.com/wp-content/uploads/2019/06/female-squat-form.jpg" alt=""></a>
+                src="{{this.image}}" alt=""></a>
         <form action="/private/add/favorite/{{this._id}}" method="POST">
             <button type="submit" class="edit-button">ADD TO FAVORITE </button>
         </form>
