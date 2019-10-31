@@ -1,20 +1,49 @@
 {{>navbar}}
-<h1>Edit profile</h1>
 
-<form action="/private/profile/edit" method="post">
-    <label for="">Email:</label>
-<input type="text" name="email" value="{{user.email}}">
+<section>
+    <div class="title-page homedeborrar">
+        <h1>Edit profile</h1>
+    </div>
+    <div id="main">
+        <form id="frm" action="/private/profile/edit" method="post">
+            <div>
+                <label for="">Email:</label> 
+            </div>          
+            <div>
+                <input type="text" name="email" value="{{user.email}}">
+            </div>
+            <br>
 
-    <label for="">Age:</label>
-<input type="text" name="age" value="{{user.age}}">
+            <div>
+                <label for="">Age:</label> 
+            </div>         
+            <div>
+                <input type="text" name="age" value="{{user.age}}">
+            </div>
+            <br>
 
-    <label for="">Height:</label>
-<input type="text" name="height" value="{{user.height}}">
+            <div>
+                <label for="">Height:</label> 
+            </div>
+            <div>
+                <input type="text" name="height" value="{{user.height}}">
+            </div>
+            <br>
+            <div>
+                <label for="">Weight:</label> 
+            </div>
+            <div>
+            <input type="text" name="weight" value="{{user.weight}}">
+            </div>
+            <br>
+            <div>
+            <button type="submit">EDIT</button>
+            </div>
+        </form>
+    </div>
 
-    <label for="">Weight:</label>
-<input type="text" name="weight" value="{{user.weight}}">
+    <p><a href="/private/profile">Return profile</a></p>
 
-    <button type="submit">EDIT</button>
-</form>
+</section>
 
-   <p><a href="/private/profile">Return profile</a></p>
+   {{>footer}}

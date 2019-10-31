@@ -1,4 +1,114 @@
+
 {{>navbar}}
+<section class="routine-detail-body">
+    <section class="routine-ex">
+        <div class="just-text">
+            <div class="routine-title">
+                <h1>{{routine.title}}</h1>
+            </div>
+            <div class="routine-description">
+                <h3>{{routine.description}}</h3>
+            </div>
+        </div>
+
+        <div class="exercise-box">
+            <!--ejercicios añadidos a la rutina -->
+
+            {{#each routine.exercises}}
+
+            <div class="exe-link">
+                <a href="/private/exercise/{{this.id}}">{{this.title}}</a>
+            </div>
+
+            {{/each}}
+        </div>
+    </section>
+
+
+
+    <div>
+        <div class="h1favorito">
+            <h1>ejercicios favoritos</h1>
+        </div>
+
+        {{#each exercises}}
+
+        <div class="favorite-exe">
+
+            <h6> {{this.title}} </h6>
+            <div>
+                <img src="{{this.image}}" />
+
+                <div class="form-buttons-exe">
+
+                    <form action=""/routines/{{../routine._id}}/exercise/{{this._id}}/delete method="POST">
+                        <button type="submit" class="edit-button">Delete</button>
+                    </form>
+
+                    <form action="/routines/{{../routine._id}}/exercise/{{this._id}}/add" method="POST">
+
+                        <button type="submit" class="edit-button"> ADD </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+
+
+
+        </div>
+        {{/each}}
+
+    </div>
+</section>
+
+{{>footer}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- {{>navbar}}
 <section class="routine-detail-body">
     <section class="routine-ex">
         <div class="just-text">
@@ -54,4 +164,4 @@
 
         </div>
     </div>
-</section>
+</section> --}}

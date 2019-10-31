@@ -1,43 +1,3 @@
-{{!-- {{>navbar}}
-<h1>Profile</h1>
-
-<p>{{user.username}}</p>
-<p>Email: {{user.email}}</p>
-<p>Gender: {{user.gender}}</p>
-{{#if user.age}}
-<p>Age: {{user.age}}</p>
-{{else}}
-<p>Age: User hasnt provided age</p>
-{{/if}}
-
-<p><a href="/private/home">Return exercises</a></p>
-
-<!-- <p>Age: {{user.age}}</p>
-<p>Height: {{user.password}}</p>
-<p>Weight: {{user.password}}</p>
-<p>Exercices: {{user.password}}</p>
-<p>Routines: {{user.password}}</p> -->
-
-
-<p><a href="/private/profile/edit">Edit Profile</a></p>
-<p><a href="/routines/add">Create Routine</a></p>
-<form action="/private/profile/delete/" method="POST">
-    <button type="submit">Delete Profile</button>
-</form>
-<br><br>
-<h1>Routines ({{routines.length}})</h1>
-{{#each routines}}
-<div>
-    <h2>{{this.title}}</h2>
-    <p>{{this.description}}</p>
-    <form action="/private/routines/delete/{{this._id}}" method="POST">
-        <button type="submit">Delete</button>
-
-    </form>
-    <a href="/routines/{{this._id}}">Edit</a>
-</div>
-{{/each}} --}}
-
 {{>navbar}}
 <section class="profile">
     <div class="title">
@@ -86,40 +46,35 @@
         </a>
     </div>
     <br>
-    <div>
 
-        <form action="/private/profile/delete/" method="POST">
-            <button class="button-delete" type="submit"><a href="/private/profile/delete/">Delete Profile</a></button>
-        </form>
+    <form action="/private/profile/delete/" method="POST">
+        <button class="button-delete-profile" type="submit"><a href="/private/profile/delete/">Delete
+                Profile</a></button>
+    </form>
 
-    </div>
 
     <br><br>
     <h1>Routines ({{routines.length}})</h1>
+    {{#each routines}}
     <div class="container-routine">
-
-        {{#each routines}}
 
         <div class="routine">
             <h2>{{this.title}}</h2>
-            <p>{{this.description}}</p>
         </div>
 
-        <button class="button-edit">
-            <a href="/routines/{{this._id}}">
-                <button class="button-edit">
-                    Edit
-                </button>
-            </a>
-        </button>
-
+        <a href="/routines/{{this._id}}">
+            <button class="button-edit">
+                Edit
+            </button>
+        </a>
 
         <form action="/private/routines/delete/{{this._id}}" method="POST">
-            <button class="button-delete" type="submit">Delete</button>
+            <button class="button-delete-routine" type="submit">Delete</button>
         </form>
-
 
     </div>
     {{/each}}
     </div>
 </section>
+
+{{>footer}}

@@ -212,9 +212,10 @@ span {
     font-size: 50px;
 }
 
-/*Borrar este css y clases de home*/
+
+
 /*//////EXERCISES - HOME PAGE////////////*/
-.title-home{
+.title-page{
   font-family: 'Black Ops One', cursive;
   letter-spacing: 2px;
 }
@@ -230,16 +231,19 @@ span {
   font-size: 35px;
   background-color: #377375;
   width: 100%;
+  font-family: 'Black Ops One', cursive;
+  letter-spacing: 2px;
 }
 
 .edit-button {
-  font-size: 30px;
+  font-size: 53px;
   border-block-color: light;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   background-color: #CE4A50;
   color: #DDEFE3;
   border-radius: 30px;
   padding: 8px;
+  width: 300px;
 }
 
 
@@ -351,13 +355,6 @@ span {
  
 }
 
-/* .routine-description {
-  display: flex;
-  font-size: 50px;
-  border: 1px solid black;
-justify-content: center;
-} */
-
 .routine-ex {
  display: flex;
  flex-direction: column;
@@ -404,12 +401,46 @@ background-color: #377375;
 }
 .exe-link a {
 
-  color: white;
+   color: white;
    background-color: #CE4A50;
     text-decoration: none;
     border-radius: 20px;
     padding: 10px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 0 rgba(0,0,0,0.19);
+}
+
+.favorite-exe {
+  border-radius: 25px;
+  border: 4px solid #505668;
+  background-color:white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4vh;
+}
+
+.favorite-exe h6 {
+  font-family: 'Black Ops One', cursive;
+  font-size: 70px;
+  text-align: center;
+  margin: 40px;
+}
+
+.favorite-exe img {
+  margin-bottom: 40px;
+}
+
+.form-buttons-exe {
+  display: flex;
+  justify-content: space-around;
+}
+
+.h1favorito {
+  font-family: 'Black Ops One';
+  font-size: 30px;
+  text-align: center;
+  border-bottom:1px solid black;
+  padding-bottom:1px;
 }
 
 /*/////////FOOTER/////////////////////*/
@@ -428,13 +459,11 @@ background-color: #377375;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-
-
 }
 
 .profile {
   background-color: #a8d8cd;
-
+  font-size: 50px;
 }
 
 .title {
@@ -442,6 +471,8 @@ background-color: #377375;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  font-size: 80px;
+  color: #ddefe3;
 }
 
 .button-p {
@@ -449,12 +480,13 @@ background-color: #377375;
   background-color: #2a484b;
   border: none;
   color: white;
-  padding: 2%;
+  padding: 9%;
   width: 15em;
   text-align: center;
   font-size: 15px;
   width: 15em;
   border-radius: 30px;
+  font-size: 20px;
 }
 
 /* pq no me funciona el hover? */
@@ -492,6 +524,9 @@ background-color: #377375;
 .container-routine {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  margin-left: 10px;
+  align-items: center;
 }
 
 .routine {
@@ -502,27 +537,57 @@ background-color: #377375;
 }
 
 .button-edit {
-    font-family: 'Black Ops One';
-    background-color: #2a484b;
-    border: none;
-    color: white;
-    padding: 2%;
-    width: 15em;
-    text-align: center;
-    font-size: 15px;
-    width: 15em;
-    border-radius: 30px;
-
+  font-family: 'Black Ops One';
+  background-color: #377375;
+  padding: 2%;
+  color: white;
+  padding: 9%;
+  border-radius: 10px;
+  width: 10em;
+  font-size: 15px;
+  text-align: center;
+  font-size: 30px;
 
 }
 
-.button-delete {
+.button-delete-routine {
   font-family: 'Black Ops One';
   background-color: #ce4a50;
+  padding: 2%;
   color: white;
+  padding: 9%;
   border-radius: 10px;
   width: 10em;
+  font-size: 15px;
   text-align: center;
+  font-size: 30px;
+}
+
+.button-delete-profile a {
+  background-color: grey;
+  color: white;
+  padding: 9%;
+  border-radius: 10px;
+  width: 10em;
+  font-size: 26x;
+  text-align: center;
+  text-decoration: none;
+}
 
 
+
+/*///////////////EDIT PROFILE//////////////*/
+
+#main
+{
+  line-height: 400px;
+  text-align:center; 
+  vertical-align:middle;
+}
+
+#frm
+{
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 14px; 
 }
