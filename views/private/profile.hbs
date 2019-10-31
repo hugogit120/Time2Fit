@@ -3,37 +3,29 @@
     <div class="title">
         <h1>Profile</h1>
     </div>
-    <div class="personaldata">
-        <div class="name">
-            <p>{{user.username}}</p>
+    <header class="profile-container">
+        <div>
+            <img src="/images/blank-profile-picture-973460_640.png" alt="">
         </div>
-        <p>Email: {{user.email}}</p>
-        <p>Gender: {{user.gender}}</p>
-        {{#if user.age}}
-        <p>Age: {{user.age}}</p>
-        {{else}}
-        <p>Age: User hasnt provided age</p>
-        {{/if}}
-    </div>
+        <div class="personaldata">
+            <div class="name">
+                <p>{{user.username}}</p>
+            </div>
+            <p>{{user.email}}</p>
+            <p>{{user.gender}}</p>
+            {{#if user.age}}
+            <p>{{user.age}}</p>
+            {{else}}
+            <p>Age: User hasnt provided age</p>
+            {{/if}}
+        </div>
 
-    <!-- <p>Age: {{user.age}}</p>
-<p>Height: {{user.password}}</p>
-<p>Weight: {{user.password}}</p>
-<p>Exercices: {{user.password}}</p>
-<p>Routines: {{user.password}}</p> -->
+    </header>
 
-    {{!-- Forma errónea=> el link estaría ligado al texto y no la botón. 
-        <button class="button-p">
-            <a href="/private/profile/edit">Edit <br>Profile</a>
-        </button>
-// --}}
+
 
     <div class="container-buttons">
-        <a href="/private/home">
-            <button class="button-p">
-                Return exercises
-            </button>
-        </a>
+
         <a href="/private/profile/edit">
             <button class="button-p">
                 Edit profile
@@ -50,9 +42,10 @@
 
     </div>
 
-
-
-    <h1>Routines ({{routines.length}})
+    <div class="title">
+        <h1>Routines({{routines.length}})</h1>
+    </div>
+    <center>
         <a href="/routines/add">
             <span>
                 <button class="button-p">
@@ -60,8 +53,10 @@
                 </button>
             </span>
         </a>
+    </center>
 
-    </h1>
+
+
     {{#each routines}}
     <div class="container-routine">
 
@@ -70,7 +65,7 @@
         </div>
 
         <a href="/routines/{{this._id}}">
-            <button class="button-edit">
+            <button class="btn-routine button-edit">
                 Edit
             </button>
         </a>

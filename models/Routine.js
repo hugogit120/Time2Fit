@@ -3,11 +3,20 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 
 const routineSchema = new Schema({
-title : String,
-image : String,
-description : String,
-owner: { type: ObjectId, ref: "User"},
-exercises: [{type: ObjectId, ref:"Exercise"}]
+    title: {
+        type: String,
+        default: "Routine"
+    },
+    image: String,
+    description: String,
+    owner: {
+        type: ObjectId,
+        ref: "User"
+    },
+    exercises: [{
+        type: ObjectId,
+        ref: "Exercise"
+    }]
 
 });
 

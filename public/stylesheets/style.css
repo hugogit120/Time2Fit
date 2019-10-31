@@ -28,7 +28,7 @@ body {
   background-color: wheat;
   min-height: 100vh;
   height: auto;
-  background-color: #A8D8CD;
+  background-color: #DDEFE3;
 }
 
 /*GENERAL*/
@@ -81,6 +81,7 @@ img {
 
 .title-index {
   color: white;
+
   /* font-size: 84px; */
   /* margin: 8rem; */
 
@@ -241,7 +242,7 @@ span {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-  background-color: #A8D8CD;
+  background-color: #DDEFE3;
 }
 
 .exercise-card {
@@ -255,9 +256,10 @@ span {
 
 
 /*//////EXERCISES - HOME PAGE////////////*/
-.title-page {
+.title-page>h1 {
   font-family: 'Black Ops One', cursive;
   letter-spacing: 2px;
+  color: #fff;
 }
 
 .homeh1 {
@@ -298,8 +300,18 @@ span {
 /*!!!!!!!!!!!!!!NAVBAR!!!!!!!!!!!!!!!!!!!!!!*/
 .nav {
   width: 100%;
-  background-color: #2A484E;
-  position: relative;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+.nav-check {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav>.nav-header {
@@ -318,14 +330,15 @@ span {
 }
 
 .nav>.nav-links {
-  display: inline;
-  float: right;
+  display: flex;
   font-size: 18px;
+  height: max-content;
 }
 
 .nav>.nav-links>a {
   display: inline-block;
-  padding: 30px 30px 3px 30px;
+  padding: 7px;
+  margin-left: 20px;
   text-decoration: none;
   color: #efefef;
 }
@@ -339,16 +352,26 @@ span {
   display: none;
 }
 
+#logout-link {
+  color: #fff;
+}
+
 @media (max-width:680px) {
   .nav>.nav-btn {
-    display: inline-block;
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     right: 0px;
     top: 0px;
+    overflow: hidden;
   }
 
   .nav>.nav-btn>label {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
     width: 50px;
     height: 50px;
     padding: 13px;
@@ -369,13 +392,22 @@ span {
   .nav>.nav-links {
     position: absolute;
     display: block;
+    right: 0;
     width: 100%;
-    background-color: #2A484E;
+    background-color: black;
     height: 0px;
     transition: all 0.3s ease-in;
-    overflow-y: hidden;
+    overflow: hidden;
     top: 50px;
-    left: 0px;
+    margin-top: 15px;
+  }
+
+  .logout-link>button {
+    color: #fff;
+    padding: 7px;
+    font-size: 18px;
+    margin-left: 20px;
+    padding-bottom: 15px;
   }
 
   .nav>.nav-links>a {
@@ -497,9 +529,10 @@ span {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #377375;
+  background-color: black;
   color: white;
   text-align: center;
+  padding: 2px;
 }
 
 /*CSS de ALEX para PERFIL !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
@@ -511,7 +544,8 @@ span {
 }
 
 .profile {
-  background-color: #a8d8cd;
+  background-color: #DDEFE3;
+  padding-bottom: 25px;
 }
 
 .title {
@@ -519,8 +553,9 @@ span {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding: 8px;
   /* font-size: 80px; */
-  color: #ddefe3;
+  color: #fff;
 }
 
 .button-p {
@@ -528,7 +563,7 @@ span {
   background-color: #2a484b;
   border: none;
   color: white;
-  margin: 1%;
+  margin-top: 20px;
   padding: 2%;
   width: 15em;
   text-align: center;
@@ -558,10 +593,27 @@ span {
   display: flex;
 }
 
+.profile-container {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-container>div {
+  width: max-content;
+
+  margin: 25px;
+}
+
+.profile-container>div>img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+
+}
 
 .personaldata {
   margin: 2%;
-  text-align: center;
 }
 
 .personaldata p {
@@ -579,12 +631,17 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-left: 10px;
   align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 3px #2A484E;
+  margin: 25px auto;
+  width: max-content;
+  padding: 30px;
 }
 
 .routine {
-  background-color: #a8d8cd;
+
   display: flex;
   flex-direction: column;
   margin: 2px solid;
@@ -594,6 +651,7 @@ span {
   font-family: 'Black Ops One';
   background-color: #377375;
   padding: 2%;
+  margin-top: 15px;
   color: white;
   border-radius: 10px;
   width: 10em;
@@ -605,6 +663,7 @@ span {
   font-family: 'Black Ops One';
   background-color: #ce4a50;
   padding: 2%;
+  margin-top: 15px;
   color: white;
   border-radius: 10px;
   width: 10em;
@@ -642,6 +701,10 @@ span {
   line-height: 14px;
 }
 
+#frm>div>input {
+  padding: 5px;
+}
+
 .white-text {
   color: white;
   text-decoration: none;
@@ -660,6 +723,10 @@ span {
   height: 50vh;
 }
 
+.routine-form>form>input {
+  padding: 4px;
+}
+
 .routine-form form {
   display: flex;
   flex-flow: column;
@@ -672,4 +739,10 @@ span {
   margin: 1%;
   width: 65%;
 
+}
+
+/*RANDOM*/
+.edit-link {
+  text-decoration: none;
+  color: black;
 }
