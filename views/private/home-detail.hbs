@@ -1,16 +1,25 @@
 {{>navbar}}
-<h1>Exercice</h1>
+<div class="title">
+    <h1>Exercise</h1>
+</div>
+<div class="ex-details-container">
 
-<div>
-    <h2>{{title}}</h2>
-    <img src="{{image}}" alt="">
-    <p>{{description}}</p>
+    <div>
+        <h2>{{title}}</h2>
+        <div>
+            <img src="{{image}}" alt="">
+        </div>
+
+        <div>
+            <p>{{description}}</p>
+        </div>
+
+
+    </div>
+
+    <a class="edit-link" href="/private/home">Return to Exercises</a>
 
 </div>
 
-
-
-
-<a href="/private/home">Return Exercises</a>
 
 {{>footer}}

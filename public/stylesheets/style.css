@@ -236,10 +236,9 @@ span {
 }
 
 .exercises-container {
-  justify-content: space-around;
-  padding: 20px;
+  justify-content: center;
+  padding: 10px;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   background-color: #DDEFE3;
@@ -247,13 +246,20 @@ span {
 
 .exercise-card {
   display: flex;
-  margin-right: 20px;
   flex-direction: column;
   align-items: center;
-  font-size: 50px;
+  font-size: 36px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 3px #2A484E;
+  margin: 15px auto;
+  width: 90%;
+  padding: 40px 10px;
 }
 
-
+.exercise-title {
+  color: #000;
+}
 
 /*//////EXERCISES - HOME PAGE////////////*/
 .title-page>h1 {
@@ -278,22 +284,21 @@ span {
 }
 
 .edit-button {
-  font-size: 53px;
+  font-size: 20px;
   border-block-color: light;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: #CE4A50;
-  color: #DDEFE3;
-  border-radius: 30px;
+  color: #fff;
+  border-radius: 50px;
   padding: 8px;
   width: 300px;
+  font-weight: 400;
 }
 
 
 
 .exercise-card a {
-  color: white;
   text-decoration: none;
-  padding: 25px;
   font-family: 'Black Ops One', cursive;
 }
 
@@ -744,5 +749,32 @@ span {
 /*RANDOM*/
 .edit-link {
   text-decoration: none;
-  color: black;
+  color: #CE4A50;
+}
+
+.ex-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30px;
+  padding: 15px;
+  padding-bottom: 40px;
+}
+
+.ex-details-container>div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: auto 15px;
+
+}
+
+.ex-details-container>div>div {
+  margin-top: 30px;
+}
+
+.ex-details-container>div>div>p {
+  padding: 15px 30px;
 }
