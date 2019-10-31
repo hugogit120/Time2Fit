@@ -1,40 +1,37 @@
 <div class="backgroundlogin">
-    
-        <div class="signUpBox">
 
-            <form id="form" action="/auth/signup" method="POST">
+    <div class="signUpBox">
 
-                <div class="logInInput">
-                    <input required type="text"  name="username" placeholder="username">
-                </div>
+        <form id="form" action="/auth/signup" method="POST">
 
-                <div class="logInInput">
-                    <input required type="text" name="email" placeholder="Your email">
-                </div>
-               
-                <div class="logInInput">
-                    <input required type="password" name="password" placeholder="password">
-                </div>
-            
-                <div class="radio">
-                <input type="radio" name="gender" value="male" > <span>Male</span>  <br>
-                <input type="radio" name="gender" value="female" > <span>Female</span> <br>
-                <input type="radio" name="gender" value="other" > <span>Other</span>  
-                </div>
-                
+            <div class="logInInput">
+                <input required type="text" name="username" placeholder="Username">
+            </div>
+
+            <div class="logInInput">
+                <input required type="text" name="email" placeholder="someone@someone.com">
+            </div>
+
+            <div class="logInInput">
+                <input required type="password" name="password" placeholder="Password">
+            </div>
+
+            <div class="radio">
+                <input type="radio" name="gender" value="male"> <span>Male</span> <br>
+                <input type="radio" name="gender" value="female"> <span>Female</span> <br>
+                <input type="radio" name="gender" value="other"> <span>Other</span>
+            </div>
 
 
-                <button type="submit"  class="buttonlogin">Create account </button>
-            </form>
-        </div>
 
-{{#if errorMessage}}
-<div class="error-message">{{ errorMessage }}</div>
-{{/if}}
+            <button type="submit" class="buttonlogin">Create account </button>
+        </form>
+        <a class="white-text" href="/auth/login">Login</a>
+    </div>
 
-<a href="/auth/login">Login</a>
+    {{#if errorMessage}}
+    <div class="error-message">{{ errorMessage }}</div>
+    {{/if}}
+
 
 </div>
-
-
-

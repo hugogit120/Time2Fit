@@ -1,35 +1,26 @@
 <div class="backgroundlogin">
 
-<div class="logInBox" >
-    
-            <form action="/auth/login" method="POST" id="form">
+    <div class="signUpBox">
 
-                <div class="usernamelogin">
+        <form id="form" action="/auth/login" method="POST" id="form">
 
-                    <div class="logInInput">
-                        
-                        <input type="text" value="" name="username" placeholder="Username">
-                    </div>
+            <div class="logInInput">
+                <input required type="text" name="username" placeholder="Username">
+            </div>
 
-                    <div class="logInInput">
-                        <input type="password" value="" name="password" placeholder="Password">
 
-                    </div>
 
-                </div>
-                    {{#if errorMessage }}
-                        <div class="error-message">{{ errorMessage }}</div>
-                    {{/if}}
+            <div class="logInInput">
+                <input required type="password" name="password" placeholder="Password">
+            </div>
+            <button type="submit" class="buttonlogin">Login</button>
+        </form>
+        <a class="white-text" href="/auth/signup">Sign Up</a>
+    </div>
 
-                    <button type="submit" class="buttonlogin" >log in</button>
-           </form>  
-     
+    {{#if errorMessage}}
+    <div class="error-message">{{ errorMessage }}</div>
+    {{/if}}
+
 
 </div>
-
-</div>
-
-
-
-<p class="account-message"> Join us <a href="/auth/signup">Sign up</a></p>
-   

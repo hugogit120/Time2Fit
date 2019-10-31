@@ -7,43 +7,39 @@
     <div id="main">
         <form id="frm" action="/private/profile/edit" method="post">
             <div>
-                <label for="">Email:</label> 
-            </div>          
+                <label for="">Email:</label>
+            </div>
             <div>
                 <input type="text" name="email" value="{{user.email}}">
             </div>
-            <br>
 
             <div>
-                <label for="">Age:</label> 
-            </div>         
+                <label for="">Age:</label>
+            </div>
             <div>
                 <input type="text" name="age" value="{{user.age}}">
             </div>
-            <br>
 
             <div>
-                <label for="">Height:</label> 
+                <label for="">Height:</label>
             </div>
             <div>
                 <input type="text" name="height" value="{{user.height}}">
             </div>
-            <br>
             <div>
-                <label for="">Weight:</label> 
+                <label for="">Weight:</label>
             </div>
             <div>
-            <input type="text" name="weight" value="{{user.weight}}">
+                <input type="text" name="weight" value="{{user.weight}}">
             </div>
-            <br>
             <div>
-            <button type="submit">EDIT</button>
+                <button style="width: 100%;" class="button-p" type="submit">EDIT</button>
             </div>
         </form>
     </div>
+    <p><a class="white-text" href="/private/profile">Return profile</a></p>
 
-    <p><a href="/private/profile">Return profile</a></p>
 
 </section>
 
-   {{>footer}}
+{{>footer}}

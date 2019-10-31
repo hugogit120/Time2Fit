@@ -31,30 +31,37 @@
     <div class="container-buttons">
         <a href="/private/home">
             <button class="button-p">
-                Return<br>exercises
+                Return exercises
             </button>
         </a>
         <a href="/private/profile/edit">
             <button class="button-p">
-                Edit<br>profile
+                Edit profile
             </button>
         </a>
-        <a href="/routines/add">
-            <button class="button-p">
-                Add<br>routine
-            </button>
-        </a>
+        <form action="/private/profile/delete/" method="POST">
+            <button class="button-p" type="submit">Delete
+                Profile</button>
+        </form>
+
     </div>
-    <br>
 
-    <form action="/private/profile/delete/" method="POST">
-        <button class="button-delete-profile" type="submit"><a href="/private/profile/delete/">Delete
-                Profile</a></button>
-    </form>
+    <div>
+
+    </div>
 
 
-    <br><br>
-    <h1>Routines ({{routines.length}})</h1>
+
+    <h1>Routines ({{routines.length}})
+        <a href="/routines/add">
+            <span>
+                <button class="button-p">
+                    Add routine
+                </button>
+            </span>
+        </a>
+
+    </h1>
     {{#each routines}}
     <div class="container-routine">
 
